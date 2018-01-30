@@ -1,0 +1,44 @@
+@RestController
+public class MyController {
+
+    @GetMapping(path = "/test")
+    @ResponseStatus(HttpStatus.OK)
+    public User test() {
+        User user = new User();
+        user.setName("Name 1");
+
+        return user;
+    }
+
+}
+
+
+Same as
+
+@RestController
+public class MyController {
+
+    @GetMapping(path = "/test")
+    public ResponseEntity<User> test() {
+        User user = new User();
+        user.setName("Name 1");
+
+        HttpHeaders responseHeaders = new HttpHeaders();
+        // ...
+        return new ResponseEntity<>(user, responseHeaders, HttpStatus.OK);
+        or
+        return ResponseEntity.ok().headers(responseHeaders).body(user);
+    }
+
+}
+
+
+If you want to handle special cases like errors (Not Found, Conflict, etc.),
+you can add a HandlerExceptionResolver to your Spring configuration.
+So in your code, you just throw a specific exception (NotFoundException for instance) and
+decide what to do in your Handler (setting the HTTP status to 404), making the Controller code more clear.
+
+http://www.baeldung.com/rest-with-spring-series/
+http://www.baeldung.com/jackson
+http://www.baeldung.com/security-spring
+http://www.baeldung.com/vavr-tutorial

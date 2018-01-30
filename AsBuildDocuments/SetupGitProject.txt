@@ -1,0 +1,6 @@
+Create the following folders:
+The directories.txt file will hold all the directories to create.
+Run the script ==> create-project-sctructure.sh
+
+Now clone the different GIT repositories for GitHub
+Run the script ==> clone-repositories.sh

@@ -1,0 +1,37 @@
+Run the following commands to create a new JHipster microservice application"
+$ jhipster (This is with the bash_profile link setup)
+$ Select Microservice application
+$ Base name of the application is the module name (note: - not allowed), ie : BillingModule
+$ Select the next available port for the port-configuration.txt file.
+$ Java package structure is as follows:
+    za.co.ajk.billing
+    Only the first part of the module name - all in lower case.
+$ Select JHipster as registry provider
+$ Select JWT as authentication
+$ Select SQL as database. Note that we will be adding MongoDB for message logging later on.
+$ Select MySQL as production DB. PostgreSQL is still in Beta on GoogleCloudPlatform
+$ Select MySQL as development DB as well.
+    Select Hazelcast as cash.
+$ Select Hibernate L2 cache
+$ Select Maven as build tool
+$ Enable Elasticsearch
+$ Enable Internationalization - English and Dutch
+$ Enable both Gatling and Cucumber testing frameworks.
+$ no additional generators.
+
+Maven will now download and build the project - ensure the registry project is running before starting to build a microservice.
+
+Complete the git setup and push to github.
+
+Now setup the MySQL configuration properties.
+Only do the development stuff for now.
+In application-dev.yml file update to info:
+      datasource:
+          type: com.zaxxer.hikari.HikariDataSource
+          url: jdbc:mysql://35.189.80.178:3306/billing?useUnicode=true&characterEncoding=utf8&useSSL=false
+          username: billing-user
+          password: qazwsxedc
+
+You should be able to start the microservice with running mvn command
+$ ./mvnw
+The database should have the changelog tables created by Liquibase.

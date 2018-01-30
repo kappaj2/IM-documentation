@@ -1,0 +1,13 @@
+https://docs.spring.io/spring-integration/reference/html/messaging-channels-section.html
+https://docs.spring.io/spring-cloud-gcp/docs/1.0.0.BUILD-SNAPSHOT/reference/html/_spring_integration.html
+
+https://spring.io/guides/gs/messaging-gcp-pubsub/
+
+http://www.baeldung.com/spring-integration
+
+https://books.google.co.za/books?id=bvHuCgAAQBAJ&pg=PA350&lpg=PA350&dq=Spring+PublishSubscribeChannel+versus+DirectChannel&source=bl&ots=mDeXKdvPi4&sig=e1tNEmieTXy0HLawF-RK3kYPdaE&hl=en&sa=X&ved=0ahUKEwj2heOAounYAhVMOMAKHZMfBZ4Q6AEIYTAI#v=onepage&q=Spring%20PublishSubscribeChannel%20versus%20DirectChannel&f=false
+
+Creating new sunscriptions, topics, etc
+
+https://docs.spring.io/spring-cloud-gcp/docs/1.0.0.BUILD-SNAPSHOT/reference/htmlsingle/#_creating_a_subscription
+https://docs.spring.io/spring-cloud-gcp/docs/1.0.0.BUILD-SNAPSHOT/reference/htmlsingle/#_credentials

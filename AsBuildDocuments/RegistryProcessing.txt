@@ -1,0 +1,23 @@
+Clone the JHipster registry from the JHipster registry repo.
+
+Create an executable so we can start the war file locally.
+Until moving to production we compile with the dev profile.
+
+$ ./mvnw clean install -Dprofile=dev
+$ ls -ltr ./target/
+This will list all the stuff in the build folder. Look for the .war file.
+ie : jhipster-registry-3.2.4.war
+
+Start using mvnw -  use the dev properties.....
+$ ./target/jhipster-registry-3.2.4.war --spring.profiles.active=dev --security.user.password=admin \
+      --jhipster.security.authentication.jwt.secret=secret-key \
+      --spring.cloud.config.server.git.uri=https://github.com/kappaj2/IM-ProfileConfig-dev
+
+The first time you need to run yarn to be able to access the UI.
+$ yarn install
+$ yarn start
+
+When the Registry application have been build with the prod profile, you will be able to run without starting
+yarn as all the ui stuff will have been compiled and added to the target.
+Until then you must run mvn and yarn in parallel to be able to access the UI.
+Yarn will start the UI on port 9000 (or which ever it finds open) and not on 8761

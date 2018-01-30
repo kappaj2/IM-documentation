@@ -1,0 +1,9 @@
+Add the following dependencies:
+
+
+<lombok.version>1.6.18</lombok.version>
+
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+</dependency>

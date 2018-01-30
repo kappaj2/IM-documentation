@@ -1,0 +1,64 @@
+Add the rest template configuration to Spring as follows:
+
+NOTE: When adding a property to the application.yml file you need to have property getter/setter
+for that specific property in ALL the modules. If it is required for a single module, add to that
+specific modules file. Symptoms of this is when Registry fails to start while complaining about a property accessor
+methods.
+
+
+Add the rest template properties configuration to the ApplicationProperties class.
+This will read the ApplicationProperties from the config server and set them for the RestTemplate build to be used.
+
+      public final RestTemplateConfig restTemplateConfig = new RestTemplateConfig();
+
+      public RestTemplateConfig getRestTemplateConfig() {
+          return restTemplateConfig;
+      }
+
+      public static class RestTemplateConfig {
+
+          private Integer connectTimeout;
+          private Integer readTimeout;
+
+          public Integer getConnectTimeout() {
+              return connectTimeout;
+          }
+
+          public void setConnectTimeout(Integer connectTimeout) {
+              this.connectTimeout = connectTimeout;
+          }
+
+          public Integer getReadTimeout() {
+              return readTimeout;
+          }
+
+          public void setReadTimeout(Integer readTimeout) {
+              this.readTimeout = readTimeout;
+          }
+      }
+
+
+In the ..config.GatewayConfiguration class add the RestTemplate builder.
+In the microservices add a new class RestTemplateConfig in the config package
+
+Add the RestTemplate bean
+
+    @Bean
+    @LoadBalanced
+    @RefreshScope
+    public RestTemplate restTemplate(RestTemplateBuilder builder, ApplicationProperties props) {
+        builder.setConnectTimeout(props.getRestTemplateConfig().getConnectTimeout());
+        builder.setReadTimeout(props.getRestTemplateConfig().getReadTimeout());
+        return builder.build();
+    }
+
+
+Then add configuration to the IM-ProfileConfig-dev file ModuleName-dev.yml
+Each module has it's own config settings for this.
+#
+# This configuration is the same for all the modules at the moment
+#
+application:
+    restTemplateConfig:
+        readTimeout: 350
+        connectTimeout: 550

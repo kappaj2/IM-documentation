@@ -1,0 +1,61 @@
+The different modules uses different databases.
+For GoogleCloudPlatform use the following:
+
+Region: europe-west2
+Zone  : any
+
+Enable the Cloud SQL API before accessing the database.
+
+All the micro services will also run in this region as their primary region - keep the DB's close to
+the servers.
+
+Instance ID : spry-ivy-182707:europe-west2:dev-im
+
+MySQL V5.7 (Second Generation) is used by the following modules:
+Server IP       Port      username            password        schema
+35.189.80.178   3306      billing-user        qazwsxedc       billing
+35.189.80.178   3306      inventory-user      qazwsxedc       inventory
+35.189.80.178   3306      workflow-user       qazwsxedc       activiti
+35.189.80.178   3306      event-user          qazwsxedc       events
+35.189.80.178   3306      integration-user    qazwsxedc       integration
+35.189.80.178   3306      gateway-user        qazwsxedc       gateway
+
+There are a couple of ways to connect to the DB. For development we will use just ip access
+
+1.  Connect using MySQL workbench.
+  a.  Get your laptop's IP address (whatismyip o similar)
+  b.  Go to the instance manager on GoogleCloud
+      (https://console.cloud.google.com/sql/instances/dev-im/databases?project=spry-ivy-182707)
+  c.  Go to Authorization
+  d.  Add a new network with your machines IP address.
+  This should be it. Need to do it for all the IP's in the MicrosService instances that is running locally.
+  For development it should suffice.
+
+//  This needs to be unpacked and updated further.
+2.  From Kubernetes
+  Here we need to create service accounts and configure them correctly.
+
+
+
+Connect from local Mac using the SQL Proxy Client
+curl -o cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.darwin.amd64
+Now create a service account:
+  AccountName : SQLCloudAdmin
+  Role : Cloud SQL SQLCloudAdmin
+  ServiceAccountId : sqlcloudadmin
+  TestProject-5daced065380.json
+
+  AccountName : SQLCloudClient
+  Role : Cloud SQL Client
+  ServiceAccountId : sqlcloudclient
+  TestProject-301279c7a186.json
+
+Create the JSON file(s) and download them.
+
+gcloud sql users create proxyuser cloudsqlproxy~% --instance=im-dev --password=qazwsxedc
+
+
+
+
+Information to connect from ContainerEngine to MySQL
+https://cloud.google.com/sql/docs/mysql/connect-container-engine

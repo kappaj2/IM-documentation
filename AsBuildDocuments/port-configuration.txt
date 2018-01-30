@@ -1,0 +1,7 @@
+IM-SystemGatewayModule  =>  8080
+IM-BillingModule        =>  8081
+IM-EventModule          =>  8082
+IM-IntegrationModule    =>  8083
+IM-InventoryModule      =>  8084
+IM-NotificationModule	=>  8086
+IM-WorkflowEngineModule =>  8085
