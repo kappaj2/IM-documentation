@@ -1,0 +1,32 @@
+Message can be tested sending a JSON payload to the test endpoint.
+
+Use Postman to submit the following:
+
+{
+   "pubSubMessageType":{
+      "message_type_code":"IncidentMessage",
+      "message_type_description":"Message used to create/update/close incidents."
+   },
+   "incidentNumber":100,
+   "messageDateCreated":"2018-01-22T15:44:03.373Z",
+   "incidentHeader":"Die ding het ontplof",
+   "incidentDescription":"Die ding het ontplof en die hele wereld aan die brand gesteek...",
+   "eventType":{
+      "event_type_code":"START",
+      "event_description":"Start a new event"
+   },
+   "incidentPriority":{
+      "priority_code":"Critical",
+      "priority_description":"Critical Priority"
+   },
+   "operatorName":"Andre",
+   "originatingApplicationModuleName":"TestModule"
+}
+
+
+
+Do POST to endpoint => localhost:8080/api/test/send-obj
+Add header key => Content-Type
+key value ==>     application/json
+
+This will send a message to the topic defined topic defined in the configuration.
