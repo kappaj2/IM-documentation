@@ -1,7 +1,0 @@
-RestTemplate stuff...
-http://www.baeldung.com/rest-template
-http://www.baeldung.com/spring-boot-testresttemplate
-
-
-Building the banner text
-http://patorjk.com/software/taag/#p=display&c=c&f=Big&t=Event%20Manager

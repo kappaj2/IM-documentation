@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/36020206/has-any-authorithy-directive-in-jhipster-application
+
+https://devhub.io/repos/deepu105-jhipster-roles
+
+This bit might need to be updated....
+https://github.com/jdubois/jhipster-sample-app-spring-boot-2/blob/master/src/main/java/io/jhipster/demo/security/SecurityUtils.java

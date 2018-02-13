@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/29522114/how-to-add-self-signed-ssl-certificate-to-jhipster-sample-app

@@ -1,0 +1,14 @@
+Running the different mvn commands require a profile to determine the correct runtime env variables. Start the mvn command speicifying the appropriate role set to use.
+
+IE: Run mvn clean install to clean, build and run all the unit test:
+
+$ mvn clean install -Dspring.profiles.active=dev,swagger
+This will run with the dev and swagger roles.
+
+Note: With this command the module will not use the JHipster registry config server to retrieve the properties required.
+
+So the following will be used:
+/main/resources/config/application.yml and the override application-dev.yml
+
+All the required props must be available in these two yml files.
+

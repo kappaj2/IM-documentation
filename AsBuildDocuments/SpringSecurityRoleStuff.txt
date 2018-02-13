@@ -1,2 +1,0 @@
-http://www.baeldung.com/spring-security-granted-authority-vs-role
-http://www.baeldung.com/role-and-privilege-for-spring-security-registration
